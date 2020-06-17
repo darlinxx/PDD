@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>LABORKI</title>
+	<meta name="description" content="materiały edukacyjne">
+	<meta name="keywords" content="zut, materialy edukacyjne">
+	<meta name="author" content="Daria Czajkowska">
+	<meta http-equiv="X-Ua-Compatible" content="IE=edge">
+	<meta name="viewport" content="width= 640,initial-scale=0.7,minimum-scale=1.0,maximum-scale=1.0" /> 
+	
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="main.css">
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	
+	<script type="text/javascript" src="validator.js"></script>
+	
+	
+	<link rel="stylesheet" href="theme.green.css">
+	<!-- load jQuery and tablesorter scripts -->
+	
+	<script type="text/javascript" src="jquery.tablesorter.js"></script>
+	<!-- tablesorter widgets (optional) -->
+	<script type="text/javascript" src="jquery.tablesorter.widgets.js"></script>
+	
+	
+	
+	<script>
+		$(function() {
+		$("#myTable").tablesorter();
+		});
+	</script>
+	
+	<script>
+	$(function sort(){
+		$("#myTable").trigger("sorton", [ [[0,0],[1,0]] ]);
+		});
+	</script>
+	
+		
+</head>
+
+<body class="h-100">
+
+	<header>
+	
+		<nav class="navbar navbar-dark bg-info fixed-bar navbar-expand-lg">
+		
+			<a class="navbar-brand" href="index1.html"><img src="logo.png"  height="100" class="d-inline-block mr-1 align-bottom" alt=""></a>
+		
+			<button class="navbar-toggler  order-first" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false">
+				<span class="navbar-toggler-icon "></span>
+			</button>
+		
+			<div class="collapse navbar-collapse" id="mainmenu">
+			
+				<ul class="navbar-nav mr-auto">
+				
+					<li class="nav-item active">
+						<a class="nav-link" href="index1.html"> Start </a>
+					</li>
+									
+					
+					<li class="nav-item">
+						<a class="nav-link" href="http://lcieszynski.zut.edu.pl/fileadmin/DPD/instrukcja_2019.pdf"> Instrukcja 2019/2020 </a>
+					</li>
+					
+					
+				
+				</ul>
+			
+							
+			</div>
+		
+							<!-- Button trigger modal -->
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+							  Koszyk
+							</button>
+
+							<!-- Modal -->
+							<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							  <div class="modal-dialog" role="document">
+								<div class="modal-content">
+								  <div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">KOSZYK</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									  <span aria-hidden="true">&times;</span>
+									</button>
+								  </div>
+								  <div class="modal-body">
+									Pusto! Tutaj powinny się dodawać elementy dodane do koszyka
+								  </div>
+								  <div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+									<button type="button" class="btn btn-primary">Zapisz</button>
+								  </div>
+								</div>
+							  </div>
+							</div>
+		
+		</nav>
+	
+	</header>
+	
+	
+	<main>
+		
+		<section class="all">
+		
+			<div class="container-fluid">
+				
+								
+				<div class="row">
+					
+					<div class="lewa col-sm-12 col-md-3 col-lg-3 col-xl-2   ">
+					
+						
+					
+					</div>
+					
+					<div class="srodek col-sm-12 col-md-6 col-lg-6 col-xl-8 ">
+					
+							<div class="row">
+							<form onsubmit=" return sprawdzCalyFormularz(event)">
+							
+							
+												
+									<div class="form-group">
+											<label for="wpiszNazwaTowaru">Nazwa towaru</label>
+											<input type="text" class="form-control" id="towar_name" onBlur="sprawdzTowarName()">
+											<div id="towar_name_blad"></div>
+									</div>
+									
+									<div class="form-group">
+											<label for="wpiszKodTowaru">Kod towaru</label>
+											<input type="text" class="form-control" id="towar_code" onBlur="sprawdzTowarCode()" >
+											<div id="towar_code_blad"></div>
+									</div>
+							
+									<div class="form-row">
+										<div class="form-group col-md-5">
+										  <label for="wpiszCenaNetto">Cena netto</label>
+										  <input type="text" class="form-control" id="towar_cena_netto" onBlur="sprawdzTowarCenaNetto()">
+										  <div id="towar_cena_netto_blad"></div>
+										</div>
+										
+										<div class="form-group col-md-2">
+										  <label for="wpiszStawkaVAT">VAT</label>
+										  <input type="text" class="form-control" id="towar_vat" onBlur="sprawdzVAT()">
+										  <div id="towar_vat_blad"></div>
+										  
+										</div>
+										
+										
+										<div class="form-group col-md-5">
+											<label for="niewpiszCenaBrutto">Cena brutto</label>
+											<input type="text" id="towar_cena_brutto" class="form-control" placeholder="Cena brutto" disabled>
+											<div id="towar_cena_brutto_blad"></div>
+										
+										</div>
+										</div>
+									
+									
+																		
+									<div class="form-group">
+											<label for="listaKategoriaTowaru">Kategoria towaru</label>
+											<select class="form-control" id="towar_kategorie" onBlur="sprawdzKategorie()">
+											 
+													<option value="0" selected >Wybierz kategorię...</option>
+													<option value="kategoria 1">kategoria 1</option>
+													<option value="kategoria 2">kategoria 2</option>
+													<option value="kategoria 3">kategoria 3</option>
+											</select>
+											</select>
+											<div id="towar_kategorie_blad"></div>
+									</div>
+									
+							<fieldset class="form-group">
+									<div class="form-group row">
+										<label class="col-sm-2 col-form-label">Opcje towaru</label>
+										<div class="col-sm-10">
+											
+											
+											<div class="form-check ">
+												  <input class="form-check-input" type="checkbox" name="opcja" id="checkboxOpcja1" value="opcja1" >
+												  <label  for="checkboxOpcja1">Opcja 1</label>
+											</div>
+											
+											<div class="form-check ">
+												  <input class="form-check-input" type="checkbox" name="opcja" id="checkboxOpcja2" value="opcja2" >
+												  <label  for="checkboxOpcja2">Opcja 2</label>
+											</div>	
+											
+											<div class="form-check ">
+												  <input class="form-check-input" type="checkbox" name="opcja" id="checkboxOpcja3" value="opcja3"  >
+												  <label  for="checkboxOpcja3">Opcja 3</label>
+											</div>
+											
+											<div class="form-check ">
+												  <input class="form-check-input" type="checkbox" name="opcja" id="checkboxOpcja4" value="opcja4">
+												  <label  for="checkboxOpcja4">Opcja 4</label>
+											</div>
+											
+											<div class="form-check ">
+												  <input class="form-check-input" type="checkbox" name="opcja" id="checkboxOpcja5" value="opcja5" >
+												  <label  for="checkboxOpcja5">Opcja 5</label>
+												  
+											</div>
+											<div id="towar_opcje_blad" ></div>	
+																					
+										</div>
+										
+										
+									</div>
+									
+								</fieldset>	
+								
+									<fieldset class="form-group abcd">
+										<div class="row">
+										
+										  <label class="col-form-label col-sm-2 pt-0">Ocena towaru</label>
+											<div class="col-sm-10">
+																							
+													<div class="form-check">
+													  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="1" >
+													  <label class="form-check-label" for="exampleRadios1">★ - coś złego</label>
+													</div>
+											</div>
+											
+											<div class="col-sm-2"></div>
+											<div class="col-sm-10">
+													<div class="form-check">
+													  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="2" >
+													  <label class="form-check-label" for="exampleRadios2">★★ - coś przeciętnego</label>
+													</div>
+											</div>
+											<div class="col-sm-2"></div>
+											<div class="col-sm-10">
+													
+													<div class="form-check">
+													  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="3" checked>
+													  <label class="form-check-label" for="exampleRadios3">★★★ - coś dobrego</label>
+													</div>
+											</div>
+											<div class="col-sm-2"></div>
+											<div class="col-sm-10">		
+													<div class="form-check">
+													  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="4" >
+													  <label class="form-check-label" for="exampleRadios4">★★★★ - coś świetnego</label>
+													</div>
+											</div>
+											<div class="col-sm-2"></div>
+											<div class="col-sm-10">		
+													<div class="form-check">
+													  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="5" >
+													  <label class="form-check-label" for="exampleRadios5">★★★★★ - coś doskonałego</label>
+													</div>
+											</div>
+											
+												
+										</div>
+										
+									 </fieldset>
+								
+									
+									
+										 <div class="form-group row">
+											<label for="wpiszZdjecie">Dodaj zdjęcie</label>
+												<div class="col-sm-10">
+												<input type="text" class="form-control" id="wpiszZdjecie" placeholder="wpiszZdjecie" value="image.jpg">
+												</div>
+										</div>
+									
+									
+								  
+									<div class="col-sm-12">
+									<button type="submit" class="btn btn-primary" >Wyślij</button>
+										<span id="infoSprawdzNazwe" class="confirm" style="display:none">...TOWAR ZOSTAŁ DODANY DO TABELI...</span>
+										<span id="powtorka-blad" class="error" style="display:none;">...TOWAR O TEJ NAZWIE ISTNIEJE JUŻ W TABELI...</span>
+								
+										</span>
+									</div>
+									
+									
+						</form>	
+ <input type="hidden" name="id" id="id">
+			<div class="col-sm-10"> 
+			<label>Wybierz sortowanie</label>
+		    <select  onchange="sortowanie()" id="sortowanie">
+						
+					<option value="1"  >Nazwisko ▲</option>
+                    <option value="2" >Nazwisko ▼</option>
+					<option value="3"  >Cena ▲</option>
+                    <option value="4" >Cena ▼</option>
+					<option value="5"  >Ocena ▲</option>
+                    <option value="6" >Ocena ▼</option>
+                    
+                </select>
+			</div>
+			
+			
+<table id="myTable" class="tablesorter tablesorter-green">
+                <thead>
+                <tr>
+                    <th data-sorter="false">Id</th>
+                    <th>Nazwa towaru</th>
+                    <th data-sorter="false">Kod towaru</th>
+                    <th>Cena netto</th>
+                    <th data-sorter="false">VAT</th>
+                    <th data-sorter="false">Cena brutto</th>
+                    <th data-sorter="false">Kategoria towaru</th>
+                    <th data-sorter="false">Opcje towaru</th>
+                    <th>Ocena towaru</th>
+					<th data-sorter="false">Zdjęcie</th>
+                    <th data-sorter="false">Edytuj element</th>
+                    <th data-sorter="false">Usuń element</th>
+                    <th data-sorter="false">Dodaj do koszyka</th>
+                    
+                </tr>
+                </thead>
+                <tbody>
+				
+                </tbody>
+            </table>
+			
+			
+
+						
+</div>
+						
+					
+					
+					</div>
+					
+					<div class="prawa col-sm-12 col-md-3 col-lg-3 col-xl-2  ">
+									<div class="card" style="width: 18rem;">
+									<img src="card.png" class="card-img-top" alt="...">
+									<div class="card-body">
+										<h5 class="card-title">WIZYTÓWKA</h5>
+								
+											<p class="card-text">Daria Czajkowska</p>
+											<p class="card-text">numer indeksu 39244</p>
+											<p class="card-text">strona na ocenę 3</p>
+									</div>
+									</div>
+					</div>
+						
+					
+				</div>
+					
+					
+				
+				</div>
+				
+			</div>	
+				
+		</section>
+		
+		
+	</main>
+	<footer class="footer mt-auto bg-info  py-3 fixed-bottom">
+			<div class="container-fluid">
+				<span class="text-muted">Czajkowska Daria 39244</span>
+			</div>
+		</footer>
+	
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	
+	<script src="js/bootstrap.min.js"></script>
+	
+	<script>
+		$('#myModal').on('shown.bs.modal', function () {
+		$('#myInput').trigger('focus')
+		})
+	</script>
+	
+
+	
+</body>
+</html>
